@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6A54D760-0072-46B8-98B0-FC4DD4165C96}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>rfproject</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\study\Microsoft Visual Studio 2013\Projects\rfproject\rfproject\app\pubh;E:\study\Microsoft Visual Studio 2013\Projects\rfproject\rfproject\common\pubh;E:\study\Microsoft Visual Studio 2013\Projects\rfproject\rfproject\drv\pubh</AdditionalIncludeDirectories>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Administrator\Documents\Visual Studio 2013\Projects\rfproject\rfproject\drv\pubh;C:\Users\Administrator\Documents\Visual Studio 2013\Projects\rfproject\rfproject\app\prih;C:\Users\Administrator\Documents\Visual Studio 2013\Projects\rfproject\rfproject\common\pubh;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="app\port\rf_freqscan_ex.h" />
+    <ClInclude Include="app\prih\rf_acm.h" />
+    <ClInclude Include="app\prih\rf_anten.h" />
+    <ClInclude Include="app\prih\rf_atpc.h" />
+    <ClInclude Include="app\prih\rf_business_logic_layer.h" />
+    <ClInclude Include="app\pubh\rf_business_logic_layer_if.h" />
+    <ClInclude Include="app\prih\rf_cfgalm.h" />
+    <ClInclude Include="app\prih\rf_cmdhandler_if.h" />
+    <ClInclude Include="app\prih\rf_controlmediator.h" />
+    <ClInclude Include="app\prih\rf_cmd_dispatcher.h" />
+    <ClInclude Include="app\prih\rf_dpd.h" />
+    <ClInclude Include="app\prih\rf_fademargin.h" />
+    <ClInclude Include="app\prih\rf_freqscan_base.h" />
+    <ClInclude Include="app\prih\rf_loop.h" />
+    <ClInclude Include="app\prih\rf_main.h" />
+    <ClInclude Include="app\prih\rf_maincfg.h" />
+    <ClInclude Include="app\prih\rf_mute.h" />
+    <ClInclude Include="app\prih\rf_oam.h" />
+    <ClInclude Include="app\prih\rf_softmgr.h" />
+    <ClInclude Include="app\pubh\rf_controlmediator_if.h" />
+    <ClInclude Include="app\pubh\rf_softmgr_if.h" />
+    <ClInclude Include="common\pubh\define.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="common\pubh\rf_actionexecutor.h" />
+    <ClInclude Include="common\pubh\rf_actionexecutor_if.h" />
+    <ClInclude Include="common\pubh\rf_action_if.h" />
+    <ClInclude Include="common\pubh\rf_cmdutil.h" />
+    <ClInclude Include="common\pubh\rf_dump_if.h" />
+    <ClInclude Include="common\pubh\rf_err_def.h" />
+    <ClInclude Include="common\pubh\rf_event.h" />
+    <ClInclude Include="common\pubh\rf_eventlistener_if.h" />
+    <ClInclude Include="common\pubh\rf_eventsource.h" />
+    <ClInclude Include="common\pubh\rf_eventsource_if.h" />
+    <ClInclude Include="common\pubh\rf_tr_cfg.h" />
+    <ClInclude Include="common\pubh\rf_tr_status.h" />
+    <ClInclude Include="common\pubh\rf_tr_basicinfo.h" />
+    <ClInclude Include="drv\port\rf_async_prtclmgr_diff_rtn310.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="drv\port\rf_async_prtclmgr_diff_rtn380R1.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="drv\port\rf_async_communication.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="drv\prih\rf_cmdlist.h" />
+    <ClInclude Include="drv\prih\rf_cmdswap.h" />
+    <ClInclude Include="drv\prih\rf_prtclmgr_base.h" />
+    <ClInclude Include="drv\pubh\cmdpackage.h" />
+    <ClInclude Include="drv\pubh\rf_communication_if.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="app\port\rf_freqscan.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="app\prih\rf_almper.h" />
+    <ClInclude Include="app\prih\rf_notify.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="app\port\rf_controlmediator_diff_rtn310.cpp" />
+    <ClCompile Include="app\port\rf_controlmediator_diff_rtn360.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="app\port\rf_controlmediator_diff_rtn380R1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="app\port\rf_controlmediator_diff_rtn380R2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="app\port\rf_freqscan_ex.cpp" />
+    <ClCompile Include="app\source\rf_acm.cpp" />
+    <ClCompile Include="app\source\rf_anten.cpp" />
+    <ClCompile Include="app\source\rf_atpc.cpp" />
+    <ClCompile Include="app\source\rf_cfgalm.cpp" />
+    <ClCompile Include="app\source\rf_controlmediator.cpp" />
+    <ClCompile Include="app\source\rf_dpd.cpp" />
+    <ClCompile Include="app\source\rf_fademargin.cpp" />
+    <ClCompile Include="app\source\rf_freqscan_base.cpp" />
+    <ClCompile Include="app\source\rf_loop.cpp" />
+    <ClCompile Include="app\source\rf_main.cpp" />
+    <ClCompile Include="app\source\rf_maincfg.cpp" />
+    <ClCompile Include="app\source\rf_mute.cpp" />
+    <ClCompile Include="app\source\rf_oam.cpp" />
+    <ClCompile Include="app\source\rf_softmgr.cpp" />
+    <ClCompile Include="common\source\rf_cmdutil.cpp" />
+    <ClCompile Include="common\source\rf_tr_basicinfo.cpp" />
+    <ClCompile Include="common\source\rf_tr_cfg.cpp" />
+    <ClCompile Include="common\source\rf_tr_status.cpp" />
+    <ClCompile Include="drv\port\rf_async_communication_diff_rtn380R1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="drv\port\rf_async_prtclmgr_diff_rtn310.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="drv\port\rf_async_prtclmgr_diff_rtn380R1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="drv\port\rf_async_communication.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="drv\port\rf_async_communication_diff_rtn310.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="drv\source\rf_cmdlist.cpp" />
+    <ClCompile Include="drv\source\rf_prtclmgr_base.cpp" />
+    <ClCompile Include="rfproject.cpp" />
+    <ClCompile Include="app\port\rf_freqscan.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="app\source\rf_almper.cpp" />
+    <ClCompile Include="app\source\rf_notify.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="rfproject.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
