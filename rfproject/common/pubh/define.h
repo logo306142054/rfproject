@@ -11,6 +11,9 @@
 #define WORD unsigned short
 #define DWORD unsigned int
 
+#define ACTION_ID WORD
+const WORD ACTION_ALL = 0xff;
+
 #define CMDERR_SUCCESS 0
 #define CMDERR_ERR 1
 #define COUNTOF(array) (sizeof(array) / (sizeof(array[0])))
@@ -88,6 +91,12 @@ public:
     }
 };
 
+class Mailbox
+{
+public:
+    Mailbox() {}
+    ~Mailbox() {}
+};
 static WORD VOS_W2BY(WORD wSrc, BYTE* pbyDir)
 {
     if (pbyDir == NULL)
@@ -131,109 +140,10 @@ static WORD VOS_BY2DW(BYTE* pbySrc, DWORD *dwDir)
     return 0;
 }
 
-class CInStream
-{
-public:
-    CInStream(BYTE *pbyPara, WORD wLen)
-    {
-        m_pbyParas = pbyPara;
-        this->wLen = wLen;
-        m_wPos = 0;
-    }
-    ~CInStream(){}
-
-    WORD GetLen()
-    {
-        return wLen;
-    }
-
-    WORD GetPos()
-    {
-        return m_wPos;
-    }
-
-    BYTE* GetPara()
-    {
-        return m_pbyParas;
-    }
-
-    CInStream& operator >> (WORD &wPara)
-    {
-        if (m_wPos >= wLen) RTN_ASSERT(0);
-        VOS_BY2W(m_pbyParas + m_wPos, &wPara);
-        m_wPos += sizeof(wPara);
-        return *this;
-    }
-
-    CInStream& operator >> (BYTE &byPara)
-    {
-        if (m_wPos >= wLen) RTN_ASSERT(0);
-        byPara = *(m_pbyParas + m_wPos);
-        m_wPos += sizeof(byPara);
-        return *this;
-    }
-private:
-    WORD wLen;
-    WORD m_wPos;
-    BYTE *m_pbyParas;
-};
-
-class COutStream
-{
-public:
-    COutStream()
-    {
-        memset(m_byParas, 0, sizeof(m_byParas));
-        wLen = sizeof(m_byParas);
-        wPos = 0;
-    }
-    ~COutStream(){}
-
-    BYTE* GetPara()
-    {
-        return m_byParas;
-    }
-
-    WORD GetLen()
-    {
-        return wLen;
-    }
-
-    WORD GetPos()
-    {
-        return wPos;
-    }
-
-    COutStream& operator << (WORD wPara)
-    {
-        VOS_W2BY(wPara, m_byParas + wPos);
-        wPos += sizeof(wPara);
-        return *this;
-    }
-
-    COutStream& operator << (BYTE byPara)
-    {
-        *(m_byParas + wPos) = byPara;
-        wPos += sizeof(byPara);
-        return *this;
-    }
-
-private:
-    BYTE m_byParas[512];
-    WORD wLen;
-    WORD wPos;
-};
-class CFoBuf
-{
-public:
-    CFoBuf(){}
-    char* test;
-};
-
 class CmdPacketInfo
 {
 public:
-    CmdPacketInfo(){ wCMDID = 0; }
+    CmdPacketInfo() { wCMDID = 0; }
 
     WORD GetCMDID()
     {
@@ -247,5 +157,4 @@ public:
 public:
     WORD wCMDID;
 };
-
 #endif

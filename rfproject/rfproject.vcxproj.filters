@@ -72,28 +72,7 @@
     <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="app\prih\rf_loop.h">
-      <Filter>app\prih</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_main.h">
-      <Filter>app\prih</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_mute.h">
-      <Filter>app\prih</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\rf_action_if.h">
-      <Filter>common\pubh</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\rf_actionexecutor.h">
-      <Filter>common\pubh</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\rf_actionexecutor_if.h">
-      <Filter>common\pubh</Filter>
-    </ClInclude>
     <ClInclude Include="common\pubh\rf_cmdutil.h">
-      <Filter>common\pubh</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\rf_event.h">
       <Filter>common\pubh</Filter>
     </ClInclude>
     <ClInclude Include="common\pubh\rf_eventlistener_if.h">
@@ -108,106 +87,76 @@
     <ClInclude Include="common\pubh\define.h">
       <Filter>common\pubh</Filter>
     </ClInclude>
-    <ClInclude Include="common\pubh\rf_dump_if.h">
-      <Filter>common\pubh</Filter>
-    </ClInclude>
-    <ClInclude Include="drv\prih\rf_prtclmgr_base.h">
-      <Filter>drv\prih</Filter>
-    </ClInclude>
-    <ClInclude Include="drv\pubh\rf_communication_if.h">
-      <Filter>drv\pubh</Filter>
-    </ClInclude>
-    <ClInclude Include="drv\pubh\cmdpackage.h">
-      <Filter>drv\pubh</Filter>
-    </ClInclude>
-    <ClInclude Include="drv\port\rf_async_communication.h">
-      <Filter>drv\port</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_business_logic_layer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="drv\prih\rf_cmdswap.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_acm.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_anten.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_atpc.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="app\prih\rf_dpd.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_fademargin.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_freqscan_base.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_maincfg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_oam.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_softmgr.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\pubh\rf_softmgr_if.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_cfgalm.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\rf_err_def.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\pubh\rf_business_logic_layer_if.h">
-      <Filter>app\prih</Filter>
-    </ClInclude>
-    <ClInclude Include="app\port\rf_freqscan.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\port\rf_freqscan_ex.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\rf_tr_basicinfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_almper.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_notify.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="app\prih\rf_cmdhandler_if.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\rf_tr_cfg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\rf_tr_status.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="app\prih\rf_controlmediator.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="app\pubh\rf_controlmediator_if.h">
+    <ClInclude Include="common\pubh\command_if.h">
+      <Filter>common\pubh</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pubh\message.h">
+      <Filter>common\pubh</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pubh\actionexecutor_if.h">
+      <Filter>common\pubh</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pubh\actionexecutor.h">
+      <Filter>common\pubh</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\ap_cmd_dispatcher.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="drv\port\rf_async_prtclmgr_diff_rtn310.h">
-      <Filter>drv\port</Filter>
+    <ClInclude Include="app\prih\ap_manager.h">
+      <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="drv\port\rf_async_prtclmgr_diff_rtn380R1.h">
-      <Filter>drv\port</Filter>
+    <ClInclude Include="app\pubh\ap_manager_if.h">
+      <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="drv\prih\rf_cmdlist.h">
-      <Filter>drv\prih</Filter>
+    <ClInclude Include="app\prih\rf_controlmediator_if.h">
+      <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="app\prih\rf_cmd_dispatcher.h">
+    <ClInclude Include="common\pubh\comm_stream.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\wlan_virtual_port.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pubh\cmd_handler_if.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pubh\dump_if.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\wlan_cmd_callback.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\wlan_business_logic_layer_if.h">
+      <Filter>app\prih</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\wlan_business_logic_layer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\wlan_virtual_mode_board_if.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\wlan_virtual_port_if.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\wlan_virtual_relay_mode_board.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\wlan_virtual_rt_mode_board.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\wlan_virtual_ap_mode_board.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="app\prih\wlan_manager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="app\pubh\wlan_manager_if.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -218,103 +167,37 @@
     <ClCompile Include="rfproject.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="app\source\rf_loop.cpp">
-      <Filter>app\source</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_main.cpp">
-      <Filter>app\source</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_mute.cpp">
-      <Filter>app\source</Filter>
-    </ClCompile>
-    <ClCompile Include="drv\source\rf_prtclmgr_base.cpp">
-      <Filter>drv\source</Filter>
-    </ClCompile>
-    <ClCompile Include="drv\port\rf_async_communication.cpp">
-      <Filter>drv\port</Filter>
-    </ClCompile>
-    <ClCompile Include="drv\port\rf_async_communication_diff_rtn310.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="common\source\rf_cmdutil.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_acm.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_anten.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_atpc.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_cfgalm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="app\source\rf_dpd.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="app\source\rf_fademargin.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_freqscan_base.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_maincfg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_softmgr.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_oam.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\port\rf_freqscan.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\port\rf_freqscan_ex.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_almper.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\source\rf_notify.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="app\port\rf_controlmediator_diff_rtn310.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\port\rf_controlmediator_diff_rtn380R2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\port\rf_controlmediator_diff_rtn380R1.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="app\port\rf_controlmediator_diff_rtn360.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="app\source\rf_controlmediator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="common\source\rf_tr_status.cpp">
+    <ClCompile Include="app\source\wlan_virtual_port.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="common\source\rf_tr_cfg.cpp">
+    <ClCompile Include="app\source\wlan_cmd_callback.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="common\source\rf_tr_basicinfo.cpp">
+    <ClCompile Include="app\source\wlan_virtual_ap_mode_board.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="drv\port\rf_async_prtclmgr_diff_rtn310.cpp">
-      <Filter>drv\port</Filter>
+    <ClCompile Include="app\source\wlan_virtual_relay_mode_board.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="drv\port\rf_async_prtclmgr_diff_rtn380R1.cpp">
-      <Filter>drv\port</Filter>
+    <ClCompile Include="app\source\wlan_virtual_rt_mode_board.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="drv\source\rf_cmdlist.cpp">
-      <Filter>drv\source</Filter>
+    <ClCompile Include="app\source\ap_manager.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="drv\port\rf_async_communication_diff_rtn380R1.cpp">
+    <ClCompile Include="app\source\wlan_manager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -322,5 +205,8 @@
     <ResourceCompile Include="rfproject.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="rfproject.aps" />
   </ItemGroup>
 </Project>

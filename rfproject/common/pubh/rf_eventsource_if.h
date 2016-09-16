@@ -13,7 +13,7 @@ public:
     virtual void AddListener(class IRFEventListener *pListener) = 0;
 
     //触发事件，由事件监听器处理
-    virtual void TrigerEvent(CRFEvent &event) = 0;
+    virtual void TrigerEvent(CMessage &message) = 0;
 };
 
 #endif

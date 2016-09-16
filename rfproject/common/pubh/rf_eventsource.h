@@ -2,7 +2,7 @@
 #define _LISTENER_CONTAINER_H_
 
 #include "rf_eventsource_if.h"
-
+#include "message.h"
 
 class CRFEventSource : public IRFEventSource
 {
@@ -29,24 +29,24 @@ protected:
     //触发事件，由事件监听器处理
     virtual void TrigerEvent(WORD wEventType, WORD wError = 0)
     {
-        CRFEvent event;
-        event.m_wEventType = wEventType;
-        event.m_wError = wError;
-        TrigerEvent(event);
+        CMessage message;
+        message.m_wMessageId = wEventType;
+        message.m_wError = wError;
+        TrigerEvent(message);
     }
 
     //触发事件，由监听器处理
-    virtual void TrigerEvent(CRFEvent &event)
+    virtual void TrigerEvent(CMessage &message)
     {
         std::list<LisPoint>::iterator pos = listeners.begin();
         while (pos != listeners.end())
         {
             LisPoint point = (LisPoint)(*pos);
-            if ((point.wEventType == event.m_wEventType) && (NULL != point.pListener))
+            if ((point.wEventType == message.m_wMessageId) && (NULL != point.pListener))
             {
-                if (CMDERR_SUCCESS != (point.pListener)->EventHandle(event))
+                if (CMDERR_SUCCESS != (point.pListener)->EventHandle(message))
                 {
-                    ExceptionHandle(point.pListener, event);
+                    ExceptionHandle(point.pListener, message);
                 }
             }
             pos++;
@@ -54,7 +54,7 @@ protected:
     }
 
     //事件监听器处理事件时发生异常，由此做后续处理
-    virtual void ExceptionHandle(const class IRFEventListener *, CRFEvent &)
+    virtual void ExceptionHandle(const class IRFEventListener *, CMessage &)
     {
 
     }
