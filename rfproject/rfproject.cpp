@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include "app/prih/rf_controlmediator.h"
+#include "wlan/prih/rf_controlmediator.h"
 
 using namespace std;
 

@@ -51,7 +51,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\app\pubh;$(MsBuildProjectDirectory)\common\pubh;$(MsBuildProjectDirectory)\adapter\pubh</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\wlan\pubh;$(MsBuildProjectDirectory)\common\pubh;$(MsBuildProjectDirectory)\adapter\pubh;$(MsBuildProjectDirectory)\wlan\devservice\pubh</AdditionalIncludeDirectories>
       <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
@@ -83,26 +83,34 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="app\prih\wlan_business_logic_layer.h" />
-    <ClInclude Include="app\prih\wlan_business_logic_layer_if.h" />
-    <ClInclude Include="app\prih\wlan_cmd_callback.h" />
-    <ClInclude Include="app\prih\wlan_manager.h">
+    <ClInclude Include="common\pubh\wlan_base_info.h" />
+    <ClInclude Include="common\taskschedule\pubh\active_object_engine.h" />
+    <ClInclude Include="common\taskschedule\pubh\command.h" />
+    <ClInclude Include="common\taskschedule\pubh\delay_and_repeat.h" />
+    <ClInclude Include="common\taskschedule\pubh\func_command.h" />
+    <ClInclude Include="common\taskschedule\pubh\sleep_command.h" />
+    <ClInclude Include="wlan\devservice\pubh\wlan_dev_service.h" />
+    <ClInclude Include="wlan\devservice\pubh\wlan_dev_service_if.h" />
+    <ClInclude Include="wlan\prih\wlan_business_logic_layer.h" />
+    <ClInclude Include="wlan\prih\wlan_business_logic_layer_if.h" />
+    <ClInclude Include="wlan\prih\wlan_cmd_callback.h" />
+    <ClInclude Include="wlan\prih\wlan_manager.h">
       <DeploymentContent>true</DeploymentContent>
     </ClInclude>
-    <ClInclude Include="app\pubh\wlan_manager_if.h">
+    <ClInclude Include="wlan\pubh\wlan_manager_if.h">
       <DeploymentContent>true</DeploymentContent>
     </ClInclude>
     <ClInclude Include="common\pubh\cmd_handler_if.h" />
     <ClInclude Include="common\pubh\dump_if.h" />
-    <ClInclude Include="app\prih\wlan_virtual_ap_mode_board.h" />
-    <ClInclude Include="app\prih\wlan_virtual_mode_board_if.h" />
-    <ClInclude Include="app\prih\wlan_virtual_port_if.h" />
-    <ClInclude Include="app\prih\wlan_virtual_relay_mode_board.h" />
-    <ClInclude Include="app\prih\wlan_virtual_rt_mode_board.h" />
-    <ClInclude Include="app\prih\rf_controlmediator.h" />
-    <ClInclude Include="app\prih\ap_cmd_dispatcher.h" />
-    <ClInclude Include="app\prih\rf_dpd.h" />
-    <ClInclude Include="app\prih\rf_controlmediator_if.h" />
+    <ClInclude Include="wlan\prih\wlan_virtual_ap_mode_board.h" />
+    <ClInclude Include="wlan\prih\wlan_virtual_mode_board_if.h" />
+    <ClInclude Include="wlan\prih\wlan_virtual_port_if.h" />
+    <ClInclude Include="wlan\prih\wlan_virtual_relay_mode_board.h" />
+    <ClInclude Include="wlan\prih\wlan_virtual_rt_mode_board.h" />
+    <ClInclude Include="wlan\prih\rf_controlmediator.h" />
+    <ClInclude Include="wlan\prih\ap_cmd_dispatcher.h" />
+    <ClInclude Include="wlan\prih\rf_dpd.h" />
+    <ClInclude Include="wlan\prih\rf_controlmediator_if.h" />
     <ClInclude Include="common\pubh\comm_stream.h" />
     <ClInclude Include="common\pubh\define.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -112,30 +120,35 @@
     <ClInclude Include="common\pubh\command_if.h" />
     <ClInclude Include="common\pubh\rf_cmdutil.h" />
     <ClInclude Include="common\pubh\message.h" />
-    <ClInclude Include="common\pubh\rf_eventlistener_if.h" />
-    <ClInclude Include="common\pubh\rf_eventsource.h" />
-    <ClInclude Include="common\pubh\rf_eventsource_if.h" />
+    <ClInclude Include="common\pubh\eventlistener_if.h" />
+    <ClInclude Include="common\pubh\eventsource.h" />
+    <ClInclude Include="common\pubh\eventsource_if.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="app\prih\wlan_virtual_port.h" />
+    <ClInclude Include="wlan\prih\wlan_virtual_port.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="app\port\rf_controlmediator_diff_rtn310.cpp" />
-    <ClCompile Include="app\source\wlan_manager.cpp" />
-    <ClCompile Include="app\source\wlan_virtual_ap_mode_board.cpp" />
-    <ClCompile Include="app\source\wlan_virtual_relay_mode_board.cpp" />
-    <ClCompile Include="app\source\wlan_virtual_rt_mode_board.cpp" />
-    <ClCompile Include="app\source\wlan_cmd_callback.cpp" />
-    <ClCompile Include="app\source\rf_controlmediator.cpp" />
-    <ClCompile Include="app\source\rf_dpd.cpp" />
+    <ClCompile Include="common\taskschedule\source\active_object_engine.cpp" />
+    <ClCompile Include="common\taskschedule\source\delay_and_repeat.cpp" />
+    <ClCompile Include="common\taskschedule\source\func_command.cpp" />
+    <ClCompile Include="common\taskschedule\source\sleep_command.cpp" />
+    <ClCompile Include="wlan\devservice\source\wlan_dev_service.cpp" />
+    <ClCompile Include="wlan\port\rf_controlmediator_diff_rtn310.cpp" />
+    <ClCompile Include="wlan\source\wlan_manager.cpp" />
+    <ClCompile Include="wlan\source\wlan_virtual_ap_mode_board.cpp" />
+    <ClCompile Include="wlan\source\wlan_virtual_relay_mode_board.cpp" />
+    <ClCompile Include="wlan\source\wlan_virtual_rt_mode_board.cpp" />
+    <ClCompile Include="wlan\source\wlan_cmd_callback.cpp" />
+    <ClCompile Include="wlan\source\rf_controlmediator.cpp" />
+    <ClCompile Include="wlan\source\rf_dpd.cpp" />
     <ClCompile Include="common\source\rf_cmdutil.cpp" />
     <ClCompile Include="rfproject.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="app\source\wlan_virtual_port.cpp" />
+    <ClCompile Include="wlan\source\wlan_virtual_port.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="rfproject.rc" />

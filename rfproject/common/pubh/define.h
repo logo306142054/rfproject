@@ -97,6 +97,12 @@ public:
     Mailbox() {}
     ~Mailbox() {}
 };
+
+class IBase
+{
+public:
+    virtual ~IBase() {}
+};
 static WORD VOS_W2BY(WORD wSrc, BYTE* pbyDir)
 {
     if (pbyDir == NULL)
