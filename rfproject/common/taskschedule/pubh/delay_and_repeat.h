@@ -1,15 +1,13 @@
-#ifndef _DELAY_AND_REPEAT_H_
-#define _DELAY_AND_REPEAT_H_
-#include "command.h"
-#include "define.h"
+#pragma once
+#include "command_if.h"
 
 class ActiveObjectEngine;
 class SleepCommand;
 
-class DelayAndRepeat : public Command
+class DelayAndRepeat : public ICommand
 {
 public:
-    virtual void Exectue() = 0;
+    virtual void Execute(CMessage *pMessage = NULL) = 0;
 
 public:
     DelayAndRepeat(BYTE delayTime, BYTE sleepTime, ActiveObjectEngine& engine);
@@ -25,7 +23,7 @@ protected:
 
 private:
     bool IsExecWithoutDelay();
-    void AddToEngine(Command & cmd);
+    void AddToEngine(ICommand & cmd);
     void AddToEngineWithoutDelay();
     void AddToEngineWithDelay();
 
@@ -35,4 +33,3 @@ protected:
     ActiveObjectEngine & m_engine;
     SleepCommand *m_pSleepOwn;
 };
-#endif

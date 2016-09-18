@@ -4,14 +4,14 @@
 #include "rf_dpd.h"
 
 #include "rf_controlmediator_if.h"
-#include "rf_eventlistener_if.h"
+#include "event_listener_if.h"
 #include "actionexecutor.h"
 #include "wlan_manager_if.h"
 
 class CRtnInStream;
 class CRtnOutStream;
 
-class CRFControlMediator : public IRFControlMediator, public IRFEventListener, public IDump
+class CRFControlMediator : public IRFControlMediator, public IEventListener, public IDump
 {
 public:
     //处理平台下发的命令

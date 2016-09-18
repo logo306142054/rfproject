@@ -1,50 +1,48 @@
 #include "active_object_engine.h"
-#include "command.h"
+#include "command_if.h"
 
+using namespace std;
 
-void ActiveObjectEngine::AddCommand(Command & cmd)
+void ActiveObjectEngine::AddCommand(ICommand & cmd)
 {
-    cmds.push_back(&cmd);
+    m_cmds.push_back(&cmd);
 }
 
 void ActiveObjectEngine::Run()
 {
-    while (!isStop() && !cmds.empty())
+    if (isContinue())
     {
-        if (isPause())
-            continue;
-        
-        Command* pCmd = cmds.front();
+        ICommand* pCmd = m_cmds.front();
+        m_cmds.pop_front();
         if (pCmd != NULL)
         { 
-            pCmd->Exectue();
+            pCmd->Execute();
         }
-        cmds.pop_front();
     }
 }
 
 
-void ActiveObjectEngine::SetState(E_STATE state)
+void ActiveObjectEngine::Pause()
 {
-    m_state = state;
+    m_pause = true;
 }
 
-bool ActiveObjectEngine::isStop()
+void ActiveObjectEngine::Continue()
 {
-    return m_state == STOP;
+    m_pause = false;
 }
 
-bool ActiveObjectEngine::isPause()
+bool ActiveObjectEngine::isContinue()
 {
-    return m_state == PAUSE;
+    return !m_pause && !m_cmds.empty();
 }
 
 ActiveObjectEngine::ActiveObjectEngine()
 {
-    m_state = PAUSE;
+    m_pause = false;
 }
 
 ActiveObjectEngine::~ActiveObjectEngine()
 {
-    cmds.clear();
+    m_cmds.clear();
 }

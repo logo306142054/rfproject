@@ -7,12 +7,22 @@
 #include <list>
 #include <map>
 
+#ifndef BYTE
 #define BYTE unsigned char
+#endif
+#ifndef WORD
 #define WORD unsigned short
+#endif
+#ifndef DWORD
 #define DWORD unsigned int
+#endif
 
 #define ACTION_ID WORD
 const WORD ACTION_ALL = 0xff;
+
+const WORD EVENT_PROBED_NEW_DEV = 0x0001;
+
+
 
 #define CMDERR_SUCCESS 0
 #define CMDERR_ERR 1
@@ -28,21 +38,28 @@ const WORD ACTION_ALL = 0xff;
         obj = NULL;\
     }
 
-#define RETURN_IF_NULL(obj)\
+#define RETURN_FALSE_IF_POINTER_EQUAL_NULL(obj)\
+    if(NULL == obj)\
+    {\
+        RTN_ASSERT(obj);\
+        return false;\
+    }
+
+#define RETURN_NULL_IF_POINTER_EQUAL_NULL(obj)\
     if(NULL == obj)\
     {\
         RTN_ASSERT(obj);\
         return NULL;\
     }
 
-#define RETURN_IF_NULL_WITHOUT_VALUE(obj)\
+#define RETURN_NOTHING_IF_POINTER_EQUAL_NULL(obj)\
     if(NULL == obj)\
     {\
         RTN_ASSERT(obj);\
         return;\
     }
 
-#define RETURN_IF_NULL_WITH_VALUE(obj, err)\
+#define RETURN_ERR_CODE_IF_POINTER_EQUAL_NULL(obj, err)\
     if(NULL == obj)\
     {\
         RTN_ASSERT(obj);\
@@ -51,6 +68,10 @@ const WORD ACTION_ALL = 0xff;
 
 #define MAX_PORT 2
 #define MIN_PORT 1
+
+#define AP_LOG_INFO(msg) printf msg;
+
+#define AP_LOG_ERR(msg) printf msg;
 
 const WORD NOTIFY_TR_ONLINE = 1;
 const WORD NOTIFY_TR_OFFLINE = 2;
@@ -101,6 +122,7 @@ public:
 class IBase
 {
 public:
+    virtual bool initialize() = 0;
     virtual ~IBase() {}
 };
 static WORD VOS_W2BY(WORD wSrc, BYTE* pbyDir)

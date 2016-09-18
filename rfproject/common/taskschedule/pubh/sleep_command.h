@@ -1,14 +1,13 @@
 #pragma once
-#include "command.h"
+#include "command_if.h"
 #include <time.h>
-#include "define.h"
 
 class ActiveObjectEngine;
-class SleepCommand : public Command
+class SleepCommand : public ICommand
 {
 
 public:
-    virtual void Exectue();
+    virtual void Execute(CMessage *);
 
     void Resume();
 
@@ -16,12 +15,12 @@ public:
 private:
     inline bool IsContinueToSleep(time_t curTime);
 public:
-    SleepCommand(BYTE delayTime, ActiveObjectEngine & engine, Command &  cmd);
+    SleepCommand(BYTE delayTime, ActiveObjectEngine & engine, ICommand &  cmd);
     ~SleepCommand();
 
 private:
     ActiveObjectEngine & m_engine;
-    Command & m_cmd;
+    ICommand & m_cmd;
     BYTE m_sleepTime;
     time_t m_preTime;
     bool start;

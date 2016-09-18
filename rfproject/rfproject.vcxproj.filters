@@ -75,12 +75,6 @@
     <ClInclude Include="common\pubh\rf_cmdutil.h">
       <Filter>common\pubh</Filter>
     </ClInclude>
-    <ClInclude Include="common\pubh\define.h">
-      <Filter>common\pubh</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\command_if.h">
-      <Filter>common\pubh</Filter>
-    </ClInclude>
     <ClInclude Include="common\pubh\message.h">
       <Filter>common\pubh</Filter>
     </ClInclude>
@@ -150,31 +144,64 @@
     <ClInclude Include="wlan\devservice\pubh\wlan_dev_service_if.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="common\pubh\eventlistener_if.h">
-      <Filter>common\pubh</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\eventsource.h">
-      <Filter>common\pubh</Filter>
-    </ClInclude>
-    <ClInclude Include="common\pubh\eventsource_if.h">
-      <Filter>common\pubh</Filter>
-    </ClInclude>
     <ClInclude Include="wlan\devservice\pubh\wlan_dev_service.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="common\taskschedule\pubh\active_object_engine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="common\taskschedule\pubh\command.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="common\taskschedule\pubh\delay_and_repeat.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="common\taskschedule\pubh\func_command.h">
+    <ClInclude Include="common\taskschedule\pubh\sleep_command.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="common\taskschedule\pubh\sleep_command.h">
+    <ClInclude Include="common\taskschedule\pubh\runnable_if.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\taskschedule\pubh\thread_creator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\taskschedule\prih\window_thread_creator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\devservice\prih\wlan_insmod_tool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\devservice\prih\wlan_dev_probe.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="adapter\pubh\wlan_dev_if.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\eventsource\pubh\event_listener_if.h">
+      <Filter>common\pubh</Filter>
+    </ClInclude>
+    <ClInclude Include="common\eventsource\pubh\event_single_source_if.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\eventsource\pubh\event_source_if.h">
+      <Filter>common\pubh</Filter>
+    </ClInclude>
+    <ClInclude Include="common\eventsource\pubh\event_source.h">
+      <Filter>common\pubh</Filter>
+    </ClInclude>
+    <ClInclude Include="common\eventsource\pubh\event_single_source.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\taskschedule\pubh\command_if.h">
+      <Filter>common\pubh</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pubh\comm_cmdcode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="adapter\prih\wlan_dev_mock.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\taskschedule\pubh\scheduled_command.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pubh\define.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -224,10 +251,25 @@
     <ClCompile Include="common\taskschedule\source\delay_and_repeat.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="common\taskschedule\source\func_command.cpp">
+    <ClCompile Include="common\taskschedule\source\sleep_command.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="common\taskschedule\source\sleep_command.cpp">
+    <ClCompile Include="common\taskschedule\source\window_thread_creator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="wlan\devservice\source\wlan_dev_probe.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\eventsource\source\event_single_source.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\eventsource\source\event_source.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="adapter\source\wlan_dev_mock.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\taskschedule\source\scheduled_command.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

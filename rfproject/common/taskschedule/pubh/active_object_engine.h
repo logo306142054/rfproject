@@ -1,37 +1,32 @@
 #ifndef _ACTIVEE_OBJECT_ENGINE_H_
 #define _ACTIVEE_OBJECT_ENGINE_H_
-#include "command.h"
+
 #include <list>
+#include "runnable_if.h"
 
-enum E_STATE 
-{
-    START,
-    PAUSE,
-    STOP
-};
+class ICommand;
 
-using namespace std;
-class Command;
+class ActiveObjectEngine : public IRunnable {
 
-class ActiveObjectEngine {
+public:
+    virtual void Run();
+
+    void AddCommand(ICommand & cmd);
+
+    void Continue();
+
+    void Pause();
+
+private:
+    bool isContinue();
 
 public:
     ActiveObjectEngine();
-
-    ~ActiveObjectEngine();
-
-    void AddCommand(Command & cmd);
-
-    void Run();
-
-    void SetState(E_STATE state);
+    virtual ~ActiveObjectEngine();
 
 private:
-    bool isStop();
-    bool isPause();
-private:
-    list<Command*> cmds;
-    E_STATE m_state;
+    std::list<ICommand*> m_cmds;
+    bool m_pause;
 };
 
 #endif

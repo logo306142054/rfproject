@@ -1,8 +1,9 @@
+#include "define.h"
 #include "sleep_command.h"
 #include "active_object_engine.h"
 
 
-void SleepCommand::Exectue()
+void SleepCommand::Execute(CMessage *)
 {
     time_t curTime;
     time(&curTime);
@@ -39,7 +40,7 @@ bool SleepCommand::IsContinueToSleep(time_t curTime)
     return difftime(curTime, m_preTime) < m_sleepTime;
 }
 
-SleepCommand::SleepCommand(BYTE sleepTime, ActiveObjectEngine & engine, Command & cmd)
+SleepCommand::SleepCommand(BYTE sleepTime, ActiveObjectEngine & engine, ICommand & cmd)
     :m_sleepTime(sleepTime),
     m_engine(engine),
     m_cmd(cmd)

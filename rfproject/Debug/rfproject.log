@@ -1,2 +1,1 @@
-﻿  wlan_manager.cpp
-d:\git\c-responsitory\rfproject\rfproject\wlan\source\wlan_manager.cpp(30): error C2530: “CWlanManager::m_stBaseInfo”: 必须初始化引用
+﻿

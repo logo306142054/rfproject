@@ -4,7 +4,7 @@
 void CRFControlMediator::InitDiffBLL()
 {
     m_pRFDpd = new CRFDpd(m_byPortID, m_cmdDispacher, m_actionExecutor);
-    RETURN_IF_NULL_WITHOUT_VALUE(m_pRFDpd);
+    RETURN_NOTHING_IF_POINTER_EQUAL_NULL(m_pRFDpd);
 
 }
 

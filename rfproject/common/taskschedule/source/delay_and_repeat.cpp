@@ -1,3 +1,4 @@
+#include "define.h"
 #include "delay_and_repeat.h"
 #include "sleep_command.h"
 #include "active_object_engine.h"
@@ -18,7 +19,7 @@ void DelayAndRepeat::Sleep(BYTE newSleepTime)
     }
 }
 
-void DelayAndRepeat::AddToEngine(Command & cmd)
+void DelayAndRepeat::AddToEngine(ICommand & cmd)
 {
     m_engine.AddCommand(cmd);
 }

@@ -15,7 +15,7 @@ enum E_WLAN_MODE
     RT_MODE
 };
 
-struct ST_WLAN_BASE_INFO
+struct ST_DEV_BASE_INFO
 {
     E_WLAN_NAME m_eWlanName;
     E_WLAN_MODE m_eWlanMode;
