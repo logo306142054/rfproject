@@ -5,8 +5,8 @@
 
 #include <iostream>
 #include <iomanip>
-#include "wlan/prih/rf_controlmediator.h"
-#include "wlan/prih/wlan_manager.h"
+#include "define.h"
+#include "wlan/manager/prih/wlan_manager.h"
 #include "wlan_dev_service.h"
 #include "adapter/prih/wlan_dev_mock.h"
 #include "wlan_base_info.h"
@@ -35,11 +35,8 @@ void test_dev_probe_failed()
     int _i;
     cin >> _i;
 
-    delete manager;
-    delete dev;
     delete m_pWlanDevService;
-    
-
+    delete manager;
 }
 int _tmain(int argc, _TCHAR* argv[])
 {

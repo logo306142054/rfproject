@@ -1,3 +1,4 @@
+#include "define.h"
 #include "../prih/wlan_dev_mock.h"
 #include "wlan_base_info.h"
 #include "memory.h"

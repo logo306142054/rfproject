@@ -9,11 +9,32 @@
 #include "wlan_dev_if.h"
 #include "event_single_source_if.h"
 
+using namespace std;
+
+extern LIST_DEV g_devs;
+
+bool IsWlanDevOnline(WORD wBid)
+{
+    E_WLAN_NAME eName = GetDevNameByBid(wBid);
+
+    LIST_DEV::iterator itor = g_devs.begin();
+    while (itor != g_devs.end())
+    {
+        if ((*itor).devInfo.m_eWlanName == eName)
+        {
+            return (*itor).eState == E_NORMAL;
+        }
+        itor++;
+    }
+
+    return false;
+}
+
 bool CWlanDevService::initialize()
 {
     InsmodWlanModule();
 
-    m_pWlanDev = CreateWlanDev();
+    m_pWlanDev = ::CreateWlanDev();
     RETURN_FALSE_IF_POINTER_EQUAL_NULL(m_pWlanDev);
     IEventSingleSource * iss = dynamic_cast<IEventSingleSource *>(m_pWlanDev);
     RETURN_FALSE_IF_POINTER_EQUAL_NULL(iss);

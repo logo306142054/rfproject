@@ -1,5 +1,4 @@
 #pragma once
-#include "define.h"
 
 #include "event_single_source.h"
 #include "wlan_dev_if.h"

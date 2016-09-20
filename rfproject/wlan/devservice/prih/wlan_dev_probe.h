@@ -5,7 +5,9 @@
 #include "cmd_handler_if.h"
 #include "dump_if.h"
 
-#include <list>
+#include <vector>
+
+#define LIST_DEV vector<DEV_STATE>
 
 class IWlanDevService;
 
@@ -18,8 +20,9 @@ struct DEV_STATE
 {
     ST_DEV_BASE_INFO devInfo;
     bool isLoading;
-    E_STATE estate;
+    E_STATE eState;
     BYTE m_byProbeCount;
+    BYTE m_byAlm;
 };
 
 class CWlanDevProbe : public DelayAndRepeat, public ICmdHandler, public IDump
@@ -38,10 +41,10 @@ public:
     virtual void Dump(CDumpTool & dump);
 
 private:
-    bool IsCommunNormal();
     void ProbeDev();
-
     void UpdateDevInfo(ST_DEV_BASE_INFO &dev);
+    void NotifyInitBoard();
+    void CheckDevState();
 
     DEV_STATE* GetDevFromList(E_WLAN_NAME eName);
 
@@ -52,7 +55,4 @@ public:
 private:
     
     IWlanDevService * m_pWlanDevService;
-    std::list<DEV_STATE> devs;
-
-
 };

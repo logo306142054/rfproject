@@ -9,37 +9,18 @@
 using namespace std;
 
 //上线前探测的最大次数
-const BYTE MAX_PROBE_NUM = 3;
+const BYTE MAX_PROBE_NUM = 2;
+
+//TODO 对g_devs的访问应该做信号量互斥
+LIST_DEV g_devs;
 
 void CWlanDevProbe::Execute(CMessage *)
 {
-    //未上线
-    if (!IsCommunNormal())
-    {
-        ProbeDev();
-    }
+    ProbeDev();
+
+    NotifyInitBoard();
 
     Sleep();
-}
-
-bool CWlanDevProbe::IsCommunNormal()
-{
-    if (devs.empty())
-    {
-        return false;
-    }
-
-    list<DEV_STATE>::iterator itor = devs.begin();
-    while (itor != devs.end())
-    {
-        if ((*itor).estate == E_ABNORMAL)
-        {
-            return false;
-        }
-        itor++;
-    }
-
-    return true;
 }
 
 void CWlanDevProbe::ProbeDev()
@@ -48,24 +29,6 @@ void CWlanDevProbe::ProbeDev()
     if (dev != NULL)
     {
         dev->Probe(CMD_PROBE_DEV);
-    }
-}
-
-CWlanDevProbe::CWlanDevProbe(BYTE delayTime, BYTE sleepTime, ActiveObjectEngine & engine, IWlanDevService * pWlanDevService)
-    : DelayAndRepeat(delayTime, sleepTime, engine)
-{
-    m_pWlanDevService = pWlanDevService;
-}
-
-
-void CWlanDevProbe::Dump(CDumpTool & dump)
-{
-    std::list<DEV_STATE>::iterator itor = devs.begin();
-    while (itor != devs.end())
-    {
-        printf("dump : devname=%d,isLoading=%d, byState=%d, m_byProbeNum=%d\n",
-            (*itor).devInfo.m_eWlanName, (*itor).isLoading, (*itor).estate, (*itor).m_byProbeCount);
-        itor++;
     }
 }
 
@@ -92,6 +55,8 @@ bool CWlanDevProbe::Response(WORD wCmdID, WORD wError, CRtnInStream &inStream)
             dev.m_bSupportMaxUserNum = bySupportUserName;
             UpdateDevInfo(dev);
         }
+
+        CheckDevState();
     }
     return false;
 }
@@ -103,17 +68,11 @@ void CWlanDevProbe::UpdateDevInfo(ST_DEV_BASE_INFO &dev)
     {
         existDev->m_byProbeCount = existDev->m_byProbeCount < MAX_PROBE_NUM ? existDev->m_byProbeCount + 1 : MAX_PROBE_NUM;
         existDev->devInfo = dev;
-        printf(" probe dev name=%d, count=%d\n", existDev->devInfo.m_eWlanName, existDev->m_byProbeCount);
+        //printf(" probe dev name=%d, count=%d\n", existDev->devInfo.m_eWlanName, existDev->m_byProbeCount);
         if (existDev->m_byProbeCount == MAX_PROBE_NUM)
         {
-            existDev->estate = E_NORMAL;
+            existDev->eState = E_NORMAL;
             printf(" prove dev success name=%d\n", existDev->devInfo.m_eWlanName);
-            
-            IEventSource * es = dynamic_cast<IEventSource*>(m_pWlanDevService);
-            if (es != NULL)
-            {
-                es->TrigerEvent(CMessage(EVENT_PROBED_NEW_DEV, 0, &dev));
-            }
         }
     }
     else
@@ -121,17 +80,63 @@ void CWlanDevProbe::UpdateDevInfo(ST_DEV_BASE_INFO &dev)
         DEV_STATE newDev;
         newDev.m_byProbeCount = 0;
         newDev.isLoading = false;
-        newDev.estate = E_ABNORMAL;
+        newDev.eState = E_ABNORMAL;
         newDev.devInfo = dev;
-        devs.push_back(newDev);
+        g_devs.push_back(newDev);
         printf(" probe new dev name=%d\n", newDev.devInfo.m_eWlanName);
+    }
+}
+
+void CWlanDevProbe::NotifyInitBoard()
+{
+    if (g_devs.empty())
+    {
+        return;
+    }
+
+    IEventSource * es = dynamic_cast<IEventSource*>(m_pWlanDevService);
+    RETURN_NOTHING_IF_POINTER_EQUAL_NULL(es);
+
+    LIST_DEV::iterator itor = g_devs.begin();
+    while (itor != g_devs.end())
+    {
+        if ((*itor).eState == E_NORMAL && !(*itor).isLoading)
+        {
+            CMessage msg(EVENT_PROBED_NEW_DEV, 0, &(*itor).devInfo);
+            es->TrigerEvent(msg);
+
+            if (msg.m_wError == ERR_VOS_SUCCESS)
+            {
+                (*itor).isLoading = true;
+            }
+        }
+        itor++;
+    }
+}
+
+void CWlanDevProbe::CheckDevState()
+{
+    LIST_DEV::iterator itor = g_devs.begin();
+    while (itor != g_devs.end())
+    {
+        if ((*itor).eState == E_NORMAL)
+        {
+            (*itor).m_byProbeCount = (*itor).m_byProbeCount > 0 ? (*itor).m_byProbeCount - 1 : 0;
+            if ((*itor).m_byProbeCount == 0)
+            {
+                (*itor).isLoading = false;
+                (*itor).eState = E_ABNORMAL;
+                //TODO 上报告警
+            }
+        }
+        itor++;
     }
 }
 
 DEV_STATE* CWlanDevProbe::GetDevFromList(E_WLAN_NAME eName)
 {
-    list<DEV_STATE>::iterator itor = devs.begin();
-    while (itor != devs.end())
+    LIST_DEV::iterator itor = g_devs.begin();
+    while (itor != g_devs.end())
     {
         if ((*itor).devInfo.m_eWlanName == eName)
         {
@@ -141,6 +146,23 @@ DEV_STATE* CWlanDevProbe::GetDevFromList(E_WLAN_NAME eName)
     }
 
     return NULL;
+}
+
+void CWlanDevProbe::Dump(CDumpTool & dump)
+{
+    LIST_DEV::iterator itor = g_devs.begin();
+    while (itor != g_devs.end())
+    {
+        printf("dump : devname=%d,isLoading=%d, byState=%d, m_byProbeNum=%d\n",
+            (*itor).devInfo.m_eWlanName, (*itor).isLoading, (*itor).eState, (*itor).m_byProbeCount);
+        itor++;
+    }
+}
+
+CWlanDevProbe::CWlanDevProbe(BYTE delayTime, BYTE sleepTime, ActiveObjectEngine & engine, IWlanDevService * pWlanDevService)
+    : DelayAndRepeat(delayTime, sleepTime, engine)
+{
+    m_pWlanDevService = pWlanDevService;
 }
 
 CWlanDevProbe::~CWlanDevProbe()

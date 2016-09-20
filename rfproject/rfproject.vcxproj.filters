@@ -93,51 +93,6 @@
     <ClInclude Include="common\pubh\dump_if.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="wlan\prih\ap_cmd_dispatcher.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\rf_controlmediator.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\rf_controlmediator_if.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\rf_dpd.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\wlan_business_logic_layer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\wlan_business_logic_layer_if.h">
-      <Filter>app\prih</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\wlan_cmd_callback.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\wlan_manager.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\wlan_virtual_ap_mode_board.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\wlan_virtual_mode_board_if.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\wlan_virtual_port.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\wlan_virtual_port_if.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\wlan_virtual_relay_mode_board.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\prih\wlan_virtual_rt_mode_board.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wlan\pubh\wlan_manager_if.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="common\pubh\wlan_base_info.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -204,6 +159,48 @@
     <ClInclude Include="common\pubh\define.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="wlan\manager\pubh\wlan_manager_if.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\manager\prih\wlan_cmd_callback.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\manager\prih\wlan_manager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\pubh\wlan_business_logic_layer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\pubh\wlan_business_logic_layer_if.h">
+      <Filter>app\prih</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\virtualobject\pubh\wlan_virtual_port_if.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\virtualobject\prih\wlan_virtual_ap_mode_board.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\virtualobject\prih\wlan_virtual_relay_mode_board.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\virtualobject\prih\wlan_virtual_rt_mode_board.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\pubh\cmd_dispatcher.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\virtualobject\pubh\wlan_virtual_board_if.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\virtualobject\pubh\wlan_virtual_board.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pubh\comm_type_def.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wlan\virtualobject\pubh\wlan_virtual_port.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -213,33 +210,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="common\source\rf_cmdutil.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wlan\port\rf_controlmediator_diff_rtn310.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wlan\source\rf_controlmediator.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wlan\source\rf_dpd.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wlan\source\wlan_cmd_callback.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wlan\source\wlan_manager.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wlan\source\wlan_virtual_ap_mode_board.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wlan\source\wlan_virtual_port.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wlan\source\wlan_virtual_relay_mode_board.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wlan\source\wlan_virtual_rt_mode_board.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="wlan\devservice\source\wlan_dev_service.cpp">
@@ -270,6 +240,27 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="common\taskschedule\source\scheduled_command.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="wlan\manager\source\wlan_manager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="wlan\manager\source\wlan_cmd_callback.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="wlan\virtualobject\source\wlan_virtual_relay_mode_board.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="wlan\virtualobject\source\wlan_virtual_ap_mode_board.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="wlan\virtualobject\source\wlan_virtual_port.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="wlan\virtualobject\source\wlan_virtual_rt_mode_board.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="wlan\virtualobject\source\wlan_virtual_board.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

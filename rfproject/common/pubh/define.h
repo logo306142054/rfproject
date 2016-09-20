@@ -6,16 +6,8 @@
 #include <vector>
 #include <list>
 #include <map>
+#include "comm_type_def.h"
 
-#ifndef BYTE
-#define BYTE unsigned char
-#endif
-#ifndef WORD
-#define WORD unsigned short
-#endif
-#ifndef DWORD
-#define DWORD unsigned int
-#endif
 
 #define ACTION_ID WORD
 const WORD ACTION_ALL = 0xff;
@@ -23,7 +15,8 @@ const WORD ACTION_ALL = 0xff;
 const WORD EVENT_PROBED_NEW_DEV = 0x0001;
 
 
-
+#define ERR_VOS_SUCCESS 0
+#define ERR_VOS_ERR 1
 #define CMDERR_SUCCESS 0
 #define CMDERR_ERR 1
 #define COUNTOF(array) (sizeof(array) / (sizeof(array[0])))

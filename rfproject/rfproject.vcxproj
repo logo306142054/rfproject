@@ -51,7 +51,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\wlan\pubh;$(MsBuildProjectDirectory)\common\pubh;$(MsBuildProjectDirectory)\adapter\pubh;$(MsBuildProjectDirectory)\wlan\devservice\pubh;$(MsBuildProjectDirectory)\common\taskschedule\pubh;$(MsBuildProjectDirectory)\common\eventsource\pubh</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\wlan\pubh;$(MsBuildProjectDirectory)\common\pubh;$(MsBuildProjectDirectory)\adapter\pubh;$(MsBuildProjectDirectory)\wlan\devservice\pubh;$(MsBuildProjectDirectory)\common\taskschedule\pubh;$(MsBuildProjectDirectory)\common\eventsource\pubh;$(MsBuildProjectDirectory)\wlan\manager\pubh;$(MsBuildProjectDirectory)\wlan\virtualobject\pubh</AdditionalIncludeDirectories>
       <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
@@ -88,6 +88,7 @@
     <ClInclude Include="common\eventsource\pubh\event_single_source.h" />
     <ClInclude Include="common\eventsource\pubh\event_single_source_if.h" />
     <ClInclude Include="common\pubh\comm_cmdcode.h" />
+    <ClInclude Include="common\pubh\comm_type_def.h" />
     <ClInclude Include="common\pubh\define.h" />
     <ClInclude Include="common\pubh\wlan_base_info.h" />
     <ClInclude Include="common\taskschedule\pubh\active_object_engine.h" />
@@ -101,26 +102,23 @@
     <ClInclude Include="wlan\devservice\prih\wlan_insmod_tool.h" />
     <ClInclude Include="wlan\devservice\pubh\wlan_dev_service.h" />
     <ClInclude Include="wlan\devservice\pubh\wlan_dev_service_if.h" />
-    <ClInclude Include="wlan\prih\wlan_business_logic_layer.h" />
-    <ClInclude Include="wlan\prih\wlan_business_logic_layer_if.h" />
-    <ClInclude Include="wlan\prih\wlan_cmd_callback.h" />
-    <ClInclude Include="wlan\prih\wlan_manager.h">
+    <ClInclude Include="wlan\pubh\wlan_business_logic_layer.h" />
+    <ClInclude Include="wlan\pubh\wlan_business_logic_layer_if.h" />
+    <ClInclude Include="wlan\manager\prih\wlan_cmd_callback.h" />
+    <ClInclude Include="wlan\manager\prih\wlan_manager.h">
       <DeploymentContent>true</DeploymentContent>
     </ClInclude>
-    <ClInclude Include="wlan\pubh\wlan_manager_if.h">
+    <ClInclude Include="wlan\manager\pubh\wlan_manager_if.h">
       <DeploymentContent>true</DeploymentContent>
     </ClInclude>
     <ClInclude Include="common\pubh\cmd_handler_if.h" />
     <ClInclude Include="common\pubh\dump_if.h" />
-    <ClInclude Include="wlan\prih\wlan_virtual_ap_mode_board.h" />
-    <ClInclude Include="wlan\prih\wlan_virtual_mode_board_if.h" />
-    <ClInclude Include="wlan\prih\wlan_virtual_port_if.h" />
-    <ClInclude Include="wlan\prih\wlan_virtual_relay_mode_board.h" />
-    <ClInclude Include="wlan\prih\wlan_virtual_rt_mode_board.h" />
-    <ClInclude Include="wlan\prih\rf_controlmediator.h" />
-    <ClInclude Include="wlan\prih\ap_cmd_dispatcher.h" />
-    <ClInclude Include="wlan\prih\rf_dpd.h" />
-    <ClInclude Include="wlan\prih\rf_controlmediator_if.h" />
+    <ClInclude Include="wlan\virtualobject\prih\wlan_virtual_ap_mode_board.h" />
+    <ClInclude Include="wlan\virtualobject\pubh\wlan_virtual_board_if.h" />
+    <ClInclude Include="wlan\virtualobject\pubh\wlan_virtual_port_if.h" />
+    <ClInclude Include="wlan\virtualobject\prih\wlan_virtual_relay_mode_board.h" />
+    <ClInclude Include="wlan\virtualobject\prih\wlan_virtual_rt_mode_board.h" />
+    <ClInclude Include="wlan\pubh\cmd_dispatcher.h" />
     <ClInclude Include="common\pubh\comm_stream.h" />
     <ClInclude Include="common\pubh\actionexecutor.h" />
     <ClInclude Include="common\pubh\actionexecutor_if.h" />
@@ -133,7 +131,8 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="wlan\prih\wlan_virtual_port.h" />
+    <ClInclude Include="wlan\virtualobject\pubh\wlan_virtual_port.h" />
+    <ClInclude Include="wlan\virtualobject\pubh\wlan_virtual_board.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="adapter\source\wlan_dev_mock.cpp" />
@@ -146,21 +145,19 @@
     <ClCompile Include="common\taskschedule\source\window_thread_creator.cpp" />
     <ClCompile Include="wlan\devservice\source\wlan_dev_probe.cpp" />
     <ClCompile Include="wlan\devservice\source\wlan_dev_service.cpp" />
-    <ClCompile Include="wlan\port\rf_controlmediator_diff_rtn310.cpp" />
-    <ClCompile Include="wlan\source\wlan_manager.cpp" />
-    <ClCompile Include="wlan\source\wlan_virtual_ap_mode_board.cpp" />
-    <ClCompile Include="wlan\source\wlan_virtual_relay_mode_board.cpp" />
-    <ClCompile Include="wlan\source\wlan_virtual_rt_mode_board.cpp" />
-    <ClCompile Include="wlan\source\wlan_cmd_callback.cpp" />
-    <ClCompile Include="wlan\source\rf_controlmediator.cpp" />
-    <ClCompile Include="wlan\source\rf_dpd.cpp" />
+    <ClCompile Include="wlan\manager\source\wlan_manager.cpp" />
+    <ClCompile Include="wlan\virtualobject\source\wlan_virtual_ap_mode_board.cpp" />
+    <ClCompile Include="wlan\virtualobject\source\wlan_virtual_relay_mode_board.cpp" />
+    <ClCompile Include="wlan\virtualobject\source\wlan_virtual_rt_mode_board.cpp" />
+    <ClCompile Include="wlan\manager\source\wlan_cmd_callback.cpp" />
     <ClCompile Include="common\source\rf_cmdutil.cpp" />
     <ClCompile Include="rfproject.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="wlan\source\wlan_virtual_port.cpp" />
+    <ClCompile Include="wlan\virtualobject\source\wlan_virtual_port.cpp" />
+    <ClCompile Include="wlan\virtualobject\source\wlan_virtual_board.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="rfproject.rc" />

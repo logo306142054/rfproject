@@ -12,7 +12,7 @@ void DelayAndRepeat::Sleep()
 /** 以给定的sleep time开始进入sleep状态*/
 void DelayAndRepeat::Sleep(BYTE newSleepTime)
 {
-    if (m_pSleepOwn != nullptr)
+    if (m_pSleepOwn != NULL)
     {
         m_pSleepOwn->SetSleepTime(newSleepTime);
         AddToEngine(*m_pSleepOwn);
@@ -67,8 +67,8 @@ DelayAndRepeat::DelayAndRepeat(BYTE sleepTime, ActiveObjectEngine& engine)
 
 DelayAndRepeat::~DelayAndRepeat()
 {
-    if (m_pSleepOwn != nullptr) {
+    if (m_pSleepOwn != NULL) {
         delete m_pSleepOwn;
-        m_pSleepOwn = nullptr;
+        m_pSleepOwn = NULL;
     }
 }
